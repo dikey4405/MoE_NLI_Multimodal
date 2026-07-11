@@ -1,0 +1,31 @@
+model_name: deepseek_moe
+input_dim: 4096
+num_modes: 4
+hidden_dim: 1024
+num_routed_experts: 8
+num_shared_experts: 1
+routed_top_k: 3
+expert_ffn_dim: 1024
+num_labels: 3
+dropout: 0.2
+
+use_contrastive_loss: true
+contrastive_dim: 256
+contrastive_hidden_dim: 512
+contrastive_temperature: 0.07
+contrastive_loss_coef: 0.1
+
+aux_loss_coef: 0.01
+
+seed: 42
+batch_size: 16
+num_workers: 0
+num_epochs: 10
+learning_rate: 0.0001
+weight_decay: 0.01
+patience: 3
+
+train_path: KLTN/data_sonar_features/train.pt
+dev_path: KLTN/data_sonar_features/dev.pt
+test_path: KLTN/data_sonar_features/test.pt
+output_dir: KLTN/outputs/deepseek_moe
